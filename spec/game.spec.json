@@ -1,0 +1,23 @@
+{
+  "stack": [
+    Tile,
+    Tile,
+    Tile
+  ],
+  "placedTiles": [
+    {@Tile, @Location
+    },
+    { @Tile, @Location
+    },
+    { @Tile, @Location
+    }
+  ],
+  "players": [
+    @Player "p1",
+    @Player "p2"
+  ],
+  "scoreBoard": {
+    "p1": 0,
+    "p2": 0
+  }
+}
