@@ -1,15 +1,34 @@
-import { TileStack } from './tilestack'
+import { BaseTiles, TileSet } from './tilesets'
+import { Tile } from './tile'
 
 type Vector = [number, number]
 
 export class Game {
-    // Any number of properties:
-    static startPosition: Vector = [0, 0]
 
-    private startTileStack: TileStack = new TileStack()
+    private static _startPosition: Vector = [0, 0]
 
-    constructor() {
-        //this.startTile.place(Game.startPosition)
+    public stack: Tile[] = []
+
+    initTiles(tileset: TileSet) {
+        const newTiles: Tile[] = []
+
+        tileset.forEach((tileDist) => {
+            for (let i = 0; i < tileDist.count; i++) {
+                newTiles.push(new Tile(tileDist.tile.description)) // TODO: joined? + shields
+            }
+        });
+
+        return newTiles
     }
-    // Any number of methods:
+
+
+
+    constructor(tileset: string) {
+        switch (tileset) {
+            case 'base': {
+                this.stack = this.initTiles(BaseTiles)
+            }
+        }
+    }
 }
+

@@ -11,8 +11,8 @@ interface TileDistribution {
 
 interface TileSet extends Array<TileDistribution> { }
 
-/** 72 land tiles (including one with a dark reverse) which depict
- *  road, city and farm segments, as well as cloisters.
+/** The starting stack of 72 land tiles in the base game (including one with a dark reverse)
+ *  which depict road, city and farm segments, as well as cloisters.
 */
 const BaseTiles: TileSet = [
     {
