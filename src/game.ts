@@ -1,11 +1,9 @@
 import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
 
-type Vector = [number, number];
-
 class Game {
 
-    private static _startPosition: Vector = [0, 0]
+    private readonly _startPosition: Vector = [0, 0]
 
     public stack: Tile[] = []
 
@@ -21,14 +19,21 @@ class Game {
         return newTiles
     }
 
-
-
     constructor(tileset: string) {
         switch (tileset) {
             case 'base': {
                 this.stack = this.initTiles(BaseTiles)
             }
         }
+
+        // The starting tile is placed in the middle of the table.
+        const startTile = this.stack.find(tile => tile.description == 'crfr')
+
+        if (startTile === undefined) {
+            throw new TypeError('The start tile was missing/undefined!');
+        }
+
+        startTile.place(this._startPosition)
     }
 }
 

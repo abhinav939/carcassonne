@@ -7,7 +7,7 @@ class Tile {
 
     description: string
     orientation: number = 0
-    location: Array<number> = [0, 0]
+    public location: Vector = null
 
 
     constructor(description: string) {
@@ -16,10 +16,11 @@ class Tile {
         // shields = int,
         // joined = bool
     }
-    // Any number of methods:
-    place(): string {
-        return `Hi! I am ${this.description} and ${this.orientation}.`
+
+    place(location: Vector) {
+        this.location = location
     }
+
     // getSidesFromDescription(descriptor: string): Array<Side> {
     //     // sides = []
     //     // for char in descriptor:
