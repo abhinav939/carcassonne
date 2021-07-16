@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseTiles = void 0;
-// D = double points (shield)
-// J = cities are joined. Assumption is that roads are always joined
+/** The starting stack of 72 land tiles in the base game (including one with a dark reverse)
+ *  which depict road, city and farm segments, as well as cloisters.
+*/
 var BaseTiles = [
     {
         tile: {

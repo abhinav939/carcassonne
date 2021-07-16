@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Tile = void 0;
 /**
- * Tile class represents tiles in Carcassonne. An instance of a tile stores its location and orientation,
- * the segments it contains and the features in the file. A tile can be rotated by rotate() method and
- * placed on the board with place() method. The game automatically discards a file if it cannot be placed.
+ * Represents a tile in Carcassonne. An instance of a tile stores its location and orientation,
+ * the sides it contains and the features on each side. A tile can be rotated by rotate() method and
+ * placed on the board with place() method.
  */
 var Tile = /** @class */ (function () {
     function Tile(description) {

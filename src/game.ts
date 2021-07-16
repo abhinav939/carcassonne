@@ -1,9 +1,9 @@
 import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
 
-type Vector = [number, number]
+type Vector = [number, number];
 
-export class Game {
+class Game {
 
     private static _startPosition: Vector = [0, 0]
 
@@ -32,3 +32,4 @@ export class Game {
     }
 }
 
+export { Game }
