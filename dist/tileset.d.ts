@@ -1,0 +1,27 @@
+declare const TILESET: {
+    ccccJ: number;
+    cccfJ: number;
+    cccfDJ: number;
+    cccrJ: number;
+    cccrDJ: number;
+    ccffJ: number;
+    ccffDJ: number;
+    ccff: number;
+    ccrrJ: number;
+    ccrrDJ: number;
+    cfcfJ: number;
+    cfcfDJ: number;
+    cfcf: number;
+    cfff: number;
+    cfrr: number;
+    crfr: number;
+    crrf: number;
+    crrr: number;
+    ffff: number;
+    fffr: number;
+    ffrr: number;
+    frfr: number;
+    frrr: number;
+    rrrr: number;
+};
+export default TILESET;

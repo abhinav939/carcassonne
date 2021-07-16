@@ -1,13 +1,25 @@
 import { Tile } from './tile'
+import { TileSet, BaseTiles } from './tilesets'
 
 class TileStack {
 
-    private tiles: Tile[]
+    private tiles: string[] // Tile[]
 
-    private initialTile = new Tile('cccc')
+    private initialTiles = (tileset: TileSet) => {
+        const newTiles: string[] = []
+
+        for (tileDistribution in tileset) {
+            const count = tileset[descriptor];
+            for (let i = 0; i < count; i++) {
+                newTiles.push(descriptor)
+            }
+        }
+
+        return newTiles
+    }
 
     constructor() {
-        this.tiles = [this.initialTile]
+        this.tiles = this.initialTiles(BaseTiles)
     }
 }
 

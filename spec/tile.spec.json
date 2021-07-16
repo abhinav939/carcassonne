@@ -1,0 +1,20 @@
+{
+  "description": "cccc",
+  "orienation": "0", // degrees,
+  "position": [
+    0,
+    1
+  ],
+  "joined": True,
+  "double points": True,
+  "sides": {
+    "n": {
+      "feature: "city",
+          "belongs_to": "ref: City"
+          "has_neighbour": True
+    },
+    "e": {},
+    "s": {},
+    "w": {}
+  }
+}

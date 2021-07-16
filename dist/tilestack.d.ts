@@ -1,6 +1,6 @@
 declare class TileStack {
     private tiles;
-    private initialTile;
+    private initialTiles;
     constructor();
 }
 export { TileStack };
