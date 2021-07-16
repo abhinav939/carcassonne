@@ -4,7 +4,7 @@
   "description": "game",
   "main": "dist/index.js",
   "scripts": {
-    "test": "rm -rf ./dist; tsc; jest",
+    "test": "jest",
     "lint": "eslint . --ext .ts"
   },
   "repository": {

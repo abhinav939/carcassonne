@@ -5,7 +5,6 @@ describe('Game tests', () => {
         const game = new gamelib.Game(
             'base'
         )
-        console.log(game.stack)
         expect(game.stack).toHaveLength(72);
     });
 });
