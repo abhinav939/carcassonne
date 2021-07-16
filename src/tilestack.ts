@@ -18,8 +18,8 @@ class TileStack {
         return newTiles
     }
 
-    constructor() {
-        this.tiles = this.initialTiles(BaseTiles)
+    constructor(tileset: TileSet) {
+        this.tiles = this.initialTiles(tileset)
     }
 }
 

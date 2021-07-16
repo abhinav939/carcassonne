@@ -11,10 +11,9 @@ interface TileDistribution {
 
 interface TileSet extends Array<TileDistribution> { }
 
-
-// D = double points (shield)
-// J = cities are joined. Assumption is that roads are always joined
-
+/** 72 land tiles (including one with a dark reverse) which depict
+ *  road, city and farm segments, as well as cloisters.
+*/
 const BaseTiles: TileSet = [
     {
         tile: {
