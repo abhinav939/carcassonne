@@ -1,14 +1,16 @@
 "use strict";
-// export class Tile {
-//     // Any number of properties:
-//     name: string
-//     orientation: number
-//     constructor(name: string, orientation: number) {
-//         this.name = name
-//         this.orientation = orientation
-//     }
-//     // Any number of methods:
-//     place(): string {
-//         return `Hi! I am ${this.name} ${this.surname}.`
-//     }
-// }
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tile = void 0;
+var Tile = /** @class */ (function () {
+    function Tile(description) {
+        this.orientation = 0;
+        this.location = [0, 0];
+        this.description = description;
+    }
+    // Any number of methods:
+    Tile.prototype.place = function () {
+        return "Hi! I am " + this.description + " and " + this.orientation + ".";
+    };
+    return Tile;
+}());
+exports.Tile = Tile;
