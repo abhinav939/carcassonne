@@ -1,9 +1,9 @@
-import DummyClass from "../src/carcassonne"
+import Tile from "../src/Tile"
 
 /**
  * Dummy test
  */
-describe("Dummy test", () => {
+describe("Tile test", () => {
   it("works if true is truthy", () => {
     expect(true).toBeTruthy()
   })
