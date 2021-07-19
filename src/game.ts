@@ -55,7 +55,15 @@ class Game {
         }
 
         startTile.place(this, this._startPosition)
+
+        function players(range: number) {
+            if (range >= 2 && range <= 6) {
+                return
+            }
+        }
+
     }
+
 
     // Start the game loop
     start(): void {
