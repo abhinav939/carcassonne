@@ -50,8 +50,6 @@ describe('When the game starts', () => {
         for (const player of game.players) {
             expect(player.meeple).toStrictEqual(6);
         }
-
-
     });
 
 });
