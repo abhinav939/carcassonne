@@ -1,7 +1,5 @@
-type players = players[]
-
-class player {
+class Player {
     public points = 0
 }
 
-export { player, players }
+export default Player

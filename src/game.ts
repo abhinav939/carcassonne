@@ -22,7 +22,7 @@ class Game {
 
     private _players: number
 
-    initPlayers(bananas: players): player[] {
+    initPlayers(bananas: players): Player[] {
 
     }
 
