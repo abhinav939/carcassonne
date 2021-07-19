@@ -77,6 +77,13 @@ class Game {
         return this._players;
     }
 
+    set meeple(bananas: number) {
+        if (bananas < 0 || bananas > 6) { throw new RangeError(); }
+        this.meeple =
+    }
+
+
+
     // Start the game loop
     start(): void {
         // While stack != empty
