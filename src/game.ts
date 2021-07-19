@@ -19,6 +19,8 @@ class Game {
 
     public placedTiles: Tile[] = []
 
+    public players: number
+
     initTiles(tileset: TileSet): Tile[] {
         const newTiles: Tile[] = []
 
@@ -40,7 +42,7 @@ class Game {
     }
 
     // Set up the game
-    constructor(tileset: string) {
+    constructor(tileset: string, players: number) {
         switch (tileset) {
             case 'base': {
                 this.stack = this.initTiles(BaseTiles)
@@ -55,12 +57,7 @@ class Game {
         }
 
         startTile.place(this, this._startPosition)
-
-        function players(range: number) {
-            if (range >= 2 && range <= 6) {
-                return
-            }
-        }
+        this.players = players
 
     }
 
