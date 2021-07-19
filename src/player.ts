@@ -1,7 +1,7 @@
-type playerdist = playerdist[]
+type players = players[]
 
 class player {
     public points = 0
 }
 
-export { player, playerdist }
+export { player, players }
