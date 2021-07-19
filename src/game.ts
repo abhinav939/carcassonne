@@ -1,5 +1,6 @@
 import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
+import player from './player'
 
 /**
  * Represents a Game of Carcassonne.
@@ -20,6 +21,10 @@ class Game {
     public placedTiles: Tile[] = []
 
     private _players: number
+
+    initPlayers(bananas: playerdist): player[] {
+
+    }
 
     initTiles(tileset: TileSet): Tile[] {
         const newTiles: Tile[] = []

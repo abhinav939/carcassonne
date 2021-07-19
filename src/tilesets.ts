@@ -9,7 +9,7 @@ interface TileDistribution {
     count: number;
 }
 
-type TileSet = Array<TileDistribution>
+type TileSet = TileDistribution[]
 
 /** The starting stack of 72 land tiles in the base game (including one with a dark reverse)
  *  which depict road, city and farm segments, as well as cloisters.
