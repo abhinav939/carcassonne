@@ -33,4 +33,14 @@ describe('When the game starts', () => {
             new Game('base', oneOrSeven);
         }).toThrow();
     });
+
+    test("All Players should start the game with 0 points", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
+
+        for (const player of game.players) {
+            expect(player.points).toStrictEqual(0);
+        }
+    });
+
 });
