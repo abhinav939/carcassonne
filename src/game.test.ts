@@ -5,14 +5,14 @@ describe('When the game starts', () => {
     // 72 - the starting tile
     test('when playing the base game the tile stack should contain 71 tiles', () => {
         const game = new Game(
-            'base', 2, 5
+            'base', 2
         )
         expect(game.stack).toHaveLength(71);
     });
 
     test('The starting tile is placed in the middle of the table.', () => {
         const game = new Game(
-            'base', 2, 5
+            'base', 2
         )
         expect(game.placedTiles[0].location).toStrictEqual([0, 0]);
     });
@@ -21,8 +21,7 @@ describe('When the game starts', () => {
     test('the game should start with the specified number of players ', () => {
         const game = new Game(
             'base',
-            2,
-            5
+            2
         )
         expect(game.players.length).toStrictEqual(2);
     });
@@ -32,13 +31,13 @@ describe('When the game starts', () => {
         const oneOrSeven = arr[Math.floor(Math.random() * arr.length)];
 
         expect(() => {
-            new Game('base', oneOrSeven, 5);
+            new Game('base', oneOrSeven);
         }).toThrow();
     });
 
     test("All Players should start the game with 0 points", () => {
         const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
-        const game = new Game('base', playerCount, 5);
+        const game = new Game('base', playerCount);
 
         for (const player of game.players) {
             expect(player.points).toStrictEqual(0);
@@ -47,10 +46,10 @@ describe('When the game starts', () => {
 
     test("All Players should start with 6 Meeple", () => {
         const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
-        const game = new Game('base', playerCount, 5);
+        const game = new Game('base', playerCount);
 
         for (const player of game.players) {
-            expect(player.meeple).toStrictEqual(6);
+            expect(player.meeple.length).toStrictEqual(6);
         }
     });
 
