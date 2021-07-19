@@ -59,6 +59,12 @@ class Game {
         startTile.place(this, this._startPosition)
         this.players = players
 
+        get players(): Number {
+            return this.players;
+        }
+        set players(range: Number) {
+            if (range < 2 || range > 6) { throw new RangeError(); }
+        }
     }
 
 
