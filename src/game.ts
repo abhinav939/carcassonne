@@ -19,7 +19,7 @@ class Game {
 
     public placedTiles: Tile[] = []
 
-    initTiles(tileset: TileSet) {
+    initTiles(tileset: TileSet): Tile[] {
         const newTiles: Tile[] = []
 
         tileset.forEach((tileDist) => {
@@ -29,9 +29,9 @@ class Game {
         });
 
         /* Random shuffle the tiles */
-        for (var i = newTiles.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = newTiles[i];
+        for (let i = newTiles.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = newTiles[i];
             newTiles[i] = newTiles[j];
             newTiles[j] = temp;
         }
@@ -58,7 +58,7 @@ class Game {
     }
 
     // Start the game loop
-    start() {
+    start(): void {
         // While stack != empty
         //      Player draws a tile from stack
         //      Player places tile (validate)

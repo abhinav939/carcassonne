@@ -1,5 +1,4 @@
 import { Game } from './game'
-const util = require('util')
 
 type Orientation = 0 | 90 | 180 | 270
 enum Direction {
@@ -18,7 +17,7 @@ class Tile {
 
     description: string
 
-    placed: boolean = false
+    placed = false
 
     orientation: Orientation = 0
 
@@ -45,20 +44,20 @@ class Tile {
         // joined = bool
     }
 
-    place(game: Game, location: Vector) {
+    place(game: Game, location: Vector): void {
         this.location = location
 
         // pop off game.stack
-        let stack = game.stack.filter(tile => {
+        const stack = game.stack.filter(tile => {
             return tile.id != this.id;
         })
         game.stack = stack
         game.placedTiles.push(this)
     }
 
-    rotate(rotations: number, direction: Direction) {
+    rotate(rotations: number, direction: Direction): void {
         if (this.placed !== false) {
-            throw new Error('Tile cannot be rotated when placed')
+            throw new Error('Tile cannot be rotated after being placed')
         }
 
         console.log('rotated tile')

@@ -4,13 +4,8 @@
     Tile,
     Tile
   ],
-  "placedTiles": [
-    {@Tile, @Location
-    },
-    { @Tile, @Location
-    },
-    { @Tile, @Location
-    }
+  "table": [
+    
   ],
   "players": [
     @Player "p1",
