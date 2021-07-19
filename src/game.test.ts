@@ -15,4 +15,13 @@ describe('When the game starts', () => {
         )
         expect(game.placedTiles[0].location).toStrictEqual([0, 0]);
     });
+
+
+    test('the game should start with the specified number of players (2-6)', () => {
+        const game = new Game(
+            'base',
+            2
+        )
+        expect(game.players).toStrictEqual(2);
+    });
 });
