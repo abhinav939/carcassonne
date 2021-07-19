@@ -61,11 +61,14 @@ class Game {
 
 
     }
-    public get players(): number {
+    private get _players(): number {
         return this.players;
     }
-    public set players(range: number) {
+
+    private set _players(range: number) {
         if (range < 2 || range > 6) { throw new RangeError(); }
+        this._players = range
+
     }
 
     // Start the game loop
