@@ -44,14 +44,14 @@ describe('When the game starts', () => {
         }
     });
 
-    // test("All Players should start with 6 uniquely coloured Meeple", () => {
-    //     const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
-    //     const game = new Game('base', playerCount);
+    test("All Players should start with 6 Meeple", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
 
-    //     for (const player of game.players) {
-    //         expect(player.meeple).toStrictEqual(6);
-    //     }
-    // });
+        for (const player of game.players) {
+            expect(player.meeple).toStrictEqual(6);
+        }
+    });
 
     test("All Players should start a unique colour", () => {
         const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
