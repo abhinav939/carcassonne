@@ -20,10 +20,16 @@ class Game {
 
     public placedTiles: Tile[] = []
 
-    private _players: number[]
+    private _players: Player[]
 
-    initPlayers(bananas: players): Player[] {
+    initPlayers(bananas: number): Player[] {
 
+        const newPlayers: Player[] = []
+
+        for (let i = 0; i < bananas; i++) {
+            newPlayers.push(new Player())
+        }
+        return newPlayers
     }
 
     initTiles(tileset: TileSet): Tile[] {
@@ -64,10 +70,10 @@ class Game {
         startTile.place(this, this._startPosition)
 
         if (playerCount < 2 || playerCount > 6) { throw new RangeError(); }
-        this._players = playerCount
+        this._players = this.initPlayers(playerCount)
     }
 
-    public get players(): number {
+    public get players(): Player[] {
         return this._players;
     }
 

@@ -22,7 +22,7 @@ describe('When the game starts', () => {
             'base',
             2
         )
-        expect(game.players).toStrictEqual(2);
+        expect(game.players.length).toStrictEqual(2);
     });
 
     test("Players should be between 2-6", () => {
