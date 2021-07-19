@@ -43,4 +43,15 @@ describe('When the game starts', () => {
         }
     });
 
+    test("All Players should start with 6 Meeple", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
+
+        for (const player of game.players) {
+            expect(player.meeple.count).toStrictEqual(6);
+        }
+
+
+    });
+
 });
