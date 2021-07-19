@@ -19,7 +19,7 @@ class Game {
 
     public placedTiles: Tile[] = []
 
-    public players: number
+    private _players: number
 
     initTiles(tileset: TileSet): Tile[] {
         const newTiles: Tile[] = []
@@ -42,7 +42,7 @@ class Game {
     }
 
     // Set up the game
-    constructor(tileset: string, players: number) {
+    constructor(tileset: string, playerCount: number) {
         switch (tileset) {
             case 'base': {
                 this.stack = this.initTiles(BaseTiles)
@@ -57,18 +57,13 @@ class Game {
         }
 
         startTile.place(this, this._startPosition)
-        this.players = players
 
-
-    }
-    private get _players(): number {
-        return this.players;
+        if (playerCount < 2 || playerCount > 6) { throw new RangeError(); }
+        this._players = playerCount
     }
 
-    private set _players(range: number) {
-        if (range < 2 || range > 6) { throw new RangeError(); }
-        this._players = range
-
+    public get players(): number {
+        return this._players;
     }
 
     // Start the game loop
