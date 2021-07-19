@@ -1,6 +1,7 @@
 import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
 import Player from './player'
+import Meeple from './meeple'
 
 /**
  * Represents a Game of Carcassonne.
@@ -22,6 +23,8 @@ class Game {
 
     private _players: Player[]
 
+    private _meeples: Meeple[]
+
     initPlayers(bananas: number): Player[] {
 
         const newPlayers: Player[] = []
@@ -30,6 +33,16 @@ class Game {
             newPlayers.push(new Player())
         }
         return newPlayers
+    }
+
+    initMeeples(bananas: number): Meeple[] {
+
+        const newMeeple: Meeple[] = []
+
+        for (let i = 0; i < bananas; i++) {
+            newMeeple.push(new Meeple())
+        }
+        return newMeeple
     }
 
     initTiles(tileset: TileSet): Tile[] {
@@ -53,7 +66,7 @@ class Game {
     }
 
     // Set up the game
-    constructor(tileset: string, playerCount: number) {
+    constructor(tileset: string, playerCount: number, meepleCount: number) {
         switch (tileset) {
             case 'base': {
                 this.stack = this.initTiles(BaseTiles)
@@ -71,15 +84,13 @@ class Game {
 
         if (playerCount < 2 || playerCount > 6) { throw new RangeError(); }
         this._players = this.initPlayers(playerCount)
+
+        if (meepleCount < 0 || meepleCount > 6) { throw new RangeError(); }
+        this._players._meeples = this.initMeeples(meepleCount)
     }
 
     public get players(): Player[] {
         return this._players;
-    }
-
-    set meeple(bananas: number) {
-        if (bananas < 0 || bananas > 6) { throw new RangeError(); }
-        this.meeple =
     }
 
 
