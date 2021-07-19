@@ -48,7 +48,7 @@ describe('When the game starts', () => {
         const game = new Game('base', playerCount);
 
         for (const player of game.players) {
-            expect(player.meeple.count).toStrictEqual(6);
+            expect(player.meeple).toStrictEqual(6);
         }
 
 
