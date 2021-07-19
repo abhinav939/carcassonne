@@ -17,11 +17,20 @@ describe('When the game starts', () => {
     });
 
 
-    test('the game should start with the specified number of players (2-6)', () => {
+    test('the game should start with the specified number of players ', () => {
         const game = new Game(
             'base',
             2
         )
         expect(game.players).toStrictEqual(2);
+    });
+
+    test("Players should be between 2-6", () => {
+        const arr = [1, 7]
+        const oneOrSeven = arr[Math.floor(Math.random() * arr.length)];
+
+        expect(() => {
+            new Game('base', oneOrSeven);
+        }).toThrow();
     });
 });
