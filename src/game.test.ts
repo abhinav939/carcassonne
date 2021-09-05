@@ -1,5 +1,6 @@
 import { Game } from './game';
 import Colours from './colours'
+import Player from './player';
 
 describe('When the game starts', () => {
     // 72 - the starting tile
@@ -53,12 +54,12 @@ describe('When the game starts', () => {
         }
     });
 
-    // test("All Players should start a unique colour", () => {
-    //     const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
-    //     const game = new Game('base', playerCount);
+    test("All Players should start a unique colour", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
 
-    //     const uniqueColours = Array.from(new Set(game.players.map((p: any) => p.colour)))
-    //     expect(uniqueColours.length).toStrictEqual(playerCount)
-    // });
+        const uniqueColours = Array.from(new Set(game.players.map((p: Player) => p.colour)))
+        expect(uniqueColours.length).toStrictEqual(playerCount)
+    });
 
 });
