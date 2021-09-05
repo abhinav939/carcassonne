@@ -61,4 +61,26 @@ describe('When the game starts', () => {
         expect(uniqueColours.length).toStrictEqual(playerCount)
     });
 
+    test("The number of players can't be changed once the game has started", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
+        console.log(game.players)
+        const newPlayerCount = playerCount > 3 ? playerCount - 1 : playerCount + 1
+
+        game.start()
+
+        expect(() => {
+            game.players = newPlayerCount;
+          }).toThrowError("Can't change the number of players: game has already started")
+    });
+
+    test("The number of players can be changed before the game has started", () => {
+        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        const game = new Game('base', playerCount);
+        console.log(game.players)
+        const newPlayerCount = playerCount > 3 ? playerCount - 1 : playerCount + 1
+        expect(() => {
+            game.players = newPlayerCount;
+          }).toThrowError("Can't change the number of players: game has already started")
+    });
 });
