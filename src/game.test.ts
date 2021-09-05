@@ -1,5 +1,4 @@
 import { Game } from './game';
-import Colours from './colours'
 import Player from './player';
 
 describe('When the game starts', () => {
@@ -54,7 +53,7 @@ describe('When the game starts', () => {
         }
     });
 
-    test("All Players should start a unique colour", () => {
+    test("All Players should start with a unique colour", () => {
         const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
         const game = new Game('base', playerCount);
 

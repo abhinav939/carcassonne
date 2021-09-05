@@ -3,7 +3,7 @@ import Meeple from './meeple'
 class Player {
     public points = 0
 
-    public colour = "green"
+    public colour: string
 
     private _meeple: Meeple[]
 
@@ -21,8 +21,9 @@ class Player {
         return newMeeple
     }
 
-    constructor() {
+    constructor(colour: string) {
         this._meeple = this.initMeeple(6)
+        this.colour = colour
     }
 }
 

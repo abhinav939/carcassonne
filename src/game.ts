@@ -2,6 +2,7 @@ import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
 import Player from './player'
 
+
 /**
  * Represents a Game of Carcassonne.
  * The Game:
@@ -22,12 +23,13 @@ class Game {
 
     private _players: Player[]
 
-    initPlayers(bananas: number): Player[] {
+    initPlayers(playerCount: number): Player[] {
 
         const newPlayers: Player[] = []
+        const colours = ['green','yellow','red','blue','black','white']
 
-        for (let i = 0; i < bananas; i++) {
-            newPlayers.push(new Player())
+        for (let i = 0; i < playerCount; i++) {
+            newPlayers.push(new Player(colours[i]))
         }
         return newPlayers
     }
