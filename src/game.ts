@@ -21,17 +21,24 @@ class Game {
 
     public placedTiles: Tile[] = []
 
-    private _players: Player[]
+    private _players: Player[] = []
 
-    initPlayers(playerCount: number): Player[] {
+    public colours = ['green','yellow','red','blue','black','white']
 
-        const newPlayers: Player[] = []
-        const colours = ['green','yellow','red','blue','black','white']
+    public inProgress = false
 
-        for (let i = 0; i < playerCount; i++) {
-            newPlayers.push(new Player(colours[i]))
+    addPlayer(player: Player): void {
+        if (this.inProgress === true) {
+            throw new Error("Can't change the number of players: game has already started")
         }
-        return newPlayers
+        if (this.colours === []) {
+            throw new Error("Too many players!")
+        }
+
+        const colour = this.colours.pop()
+        player.colour = colour!
+
+        this._players.push(player)
     }
 
     initTiles(tileset: TileSet): Tile[] {
@@ -71,8 +78,10 @@ class Game {
 
         startTile.place(this, this._startPosition)
 
-        if (playerCount < 2 || playerCount > 6) { throw new RangeError(); }
-        this._players = this.initPlayers(playerCount)
+        if (playerCount < 2 || playerCount > 6) { throw new RangeError("Must start with between 2-6 players."); }
+        for (let i = 0; i < playerCount; i++) {
+            this.addPlayer(new Player())
+        }
     }
 
     public get players(): Player[] {
@@ -81,7 +90,11 @@ class Game {
 
     // Start the game loop
     start(): void {
-        // While stack != empty
+        while (this.stack != []) {
+            const tileUsed = this.stack.pop()
+            console.log(`The tile is ${tileUsed}`)
+        }
+        console.log("The game has ended")
         //      Player draws a tile from stack
         //      Player places tile (validate)
         //      Player places Meeple (validate)

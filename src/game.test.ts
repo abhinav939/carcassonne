@@ -1,5 +1,6 @@
 import { Game } from './game';
 import Player from './player';
+import { Tile } from './tile';
 
 describe('When the game starts', () => {
     // 72 - the starting tile
@@ -62,25 +63,29 @@ describe('When the game starts', () => {
     });
 
     test("The number of players can't be changed once the game has started", () => {
-        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+        // start with 2-5 players
+        const playerCount = Math.floor(Math.random() * (5 - 2 + 1) + 2)
         const game = new Game('base', playerCount);
-        console.log(game.players)
-        const newPlayerCount = playerCount > 3 ? playerCount - 1 : playerCount + 1
 
         game.start()
 
         expect(() => {
-            game.players = newPlayerCount;
+            game.addPlayer(new Player());
           }).toThrowError("Can't change the number of players: game has already started")
     });
 
-    test("The number of players can be changed before the game has started", () => {
-        const playerCount = Math.floor(Math.random() * (6 - 2 + 1) + 2)
+    test("Can't add another player when already 6 player in-game", () => {
+        const playerCount = 6
         const game = new Game('base', playerCount);
-        console.log(game.players)
-        const newPlayerCount = playerCount > 3 ? playerCount - 1 : playerCount + 1
         expect(() => {
-            game.players = newPlayerCount;
-          }).toThrowError("Can't change the number of players: game has already started")
+            game.addPlayer(new Player);
+          }).toThrowError("Too many players!")
     });
+
+    // test("The game has executed", () => {
+    //     let stack: Tile[] = []
+    //     if (stack = []) {
+    //         console.log("The game has ended")
+    //     }
+    // });
 });
