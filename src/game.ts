@@ -31,7 +31,7 @@ class Game {
         if (this.inProgress === true) {
             throw new Error("Can't change the number of players: game has already started")
         }
-        if (this.colours === []) {
+        if (this._players.length === 6) {
             throw new Error("Too many players!")
         }
 
@@ -90,11 +90,12 @@ class Game {
 
     // Start the game loop
     start(): void {
-        while (this.stack != []) {
-            const tileUsed = this.stack.pop()
-            console.log(`The tile is ${tileUsed}`)
-        }
-        console.log("The game has ended")
+        this.inProgress = true
+        // while (this.stack != []) {
+        //     const tileUsed = this.stack.pop()
+        //     console.log(`The tile is ${tileUsed}`)
+        // }
+        // console.log("The game has ended")
         //      Player draws a tile from stack
         //      Player places tile (validate)
         //      Player places Meeple (validate)
