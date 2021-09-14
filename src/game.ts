@@ -1,6 +1,7 @@
 import { BaseTiles, TileSet } from './tilesets'
 import { Tile } from './tile'
 import Player from './player'
+import Move from './move'
 
 
 /**
@@ -23,9 +24,17 @@ class Game {
 
     private _players: Player[] = []
 
-    public colours = ['green','yellow','red','blue','black','white']
+    public colours = ['green', 'yellow', 'red', 'blue', 'black', 'white']
 
     public inProgress = false
+
+    public finished = false
+
+    public currentPlayer: Player
+
+    public getPossibleMoves(): Move[] {
+
+    }
 
     addPlayer(player: Player): void {
         if (this.inProgress === true) {
@@ -82,6 +91,8 @@ class Game {
         for (let i = 0; i < playerCount; i++) {
             this.addPlayer(new Player())
         }
+
+        this.currentPlayer = this._players[0]
     }
 
     public get players(): Player[] {
@@ -91,14 +102,19 @@ class Game {
     // Start the game loop
     start(): void {
         this.inProgress = true
-        // while (this.stack != []) {
-        //     const tileUsed = this.stack.pop()
-        //     console.log(`The tile is ${tileUsed}`)
-        // }
-        // console.log("The game has ended")
+        while (this.stack.length !== 0) {
+            for (let i = 0; i < this._players.length; i++) {
+                this._players[i] = this.currentPlayer
+                const nextTile: Tile = this.stack.pop()! //double check how to pop items in array so that it's not undefined
+                console.log(`The tile is ${nextTile}`)
+                new Move(this._players[i], nextTile)
+            }
+        }
+        console.log("The game has ended")
+        this.inProgress = false
+        this.finished = true
         //      Player draws a tile from stack
-        //      Player places tile (validate)
-        //      Player places Meeple (validate)
+
         //      Scoring
         //      Next Player's turn
 

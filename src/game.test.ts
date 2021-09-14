@@ -71,7 +71,7 @@ describe('When the game starts', () => {
 
         expect(() => {
             game.addPlayer(new Player());
-          }).toThrowError("Can't change the number of players: game has already started")
+        }).toThrowError("Can't change the number of players: game has already started")
     });
 
     test("Can't add another player when already 6 player in-game", () => {
@@ -79,13 +79,20 @@ describe('When the game starts', () => {
         const game = new Game('base', playerCount);
         expect(() => {
             game.addPlayer(new Player);
-          }).toThrowError("Too many players!")
+        }).toThrowError("Too many players!")
     });
 
-    // test("The game has executed", () => {
-    //     let stack: Tile[] = []
-    //     if (stack = []) {
-    //         console.log("The game has ended")
-    //     }
-    // });
+    test("A random can be played to the end", () => {
+        const playerCount = 6
+        const game = new Game('base', playerCount);
+
+        game.start()
+        while (game.finished != true) {
+            possibleMoves = game.getPossibleMoves()
+            game.currentPlayer.takeTurn(possibleMoves[0])
+        }
+    });
+    // TODO:
+    // game.getPossibleMoves() -> List(Moves/Actions
+    // Action: vector(1, 1), (rotation(0)
 });
