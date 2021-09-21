@@ -33,8 +33,28 @@ class Game {
     public currentPlayer: Player
 
     public getPossibleMoves(): Move[] {
-
+        //check which tiles have been placed
+        //what are the coordinates of placed tiles
+        //create a list of vectors that are adjacent to placed tiles (emptyVectors)
+        //check which combination of rotations of newTile fit into these vectors
     }
+
+    private listEmptyVectors(): Vector[] {
+
+        for (const tile of this.placedTiles) {
+            console.log(tile);
+        }
+
+        return [0,0]
+        // for each tile in placedTile {
+        // for all 4 vectors around each tile {
+        // if empty,add to list
+        //}
+        // strip duplicates
+        // }
+        // Big O =>
+    }
+
 
     addPlayer(player: Player): void {
         if (this.inProgress === true) {

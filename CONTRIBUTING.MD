@@ -12,4 +12,4 @@ Contributing md contains notes about how to setup developer environment
 - run npm test to run the test
 
 # how to commit (push) code
-- 
+- git add --all
